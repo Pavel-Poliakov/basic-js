@@ -21,14 +21,9 @@ function createDreamTeam(members) {
       typeof el === 'string'? arr.push(el.split('')):false;
     })
        arr.forEach(el=>{
-        el.forEach(item=>{
-         while(item != ' ' && item === item.toUpperCase()){
-          arr2.push(item);
-          break
-         }
-        })
+        el.every(item=>{item != ' ' && item === item.toUpperCase()?arr2.push(item):false})
        })
-       return arr2.sort().join('')
+       return arr2.length>0?arr2.sort().join(''):false
   }else{
     return false
   }
