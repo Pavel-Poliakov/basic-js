@@ -20,7 +20,14 @@ function createDreamTeam(members) {
     members.forEach(el=>{
       typeof el === 'string'? arr.push(el.split('')):false;
     })
-       arr.flat().forEach(el=>el!= " " && el === el.toUpperCase() ?arr2.push(el):false)
+       arr.forEach(el=>{
+        el.forEach(item=>{
+         while(item != ' ' && item === item.toUpperCase()){
+          arr2.push(item);
+          break
+         }
+        })
+       })
        return arr2.sort().join('')
   }else{
     return false
