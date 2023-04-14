@@ -21,7 +21,7 @@ function createDreamTeam(members) {
       typeof el === 'string'? arr.push(el.split('')):false;
     })
        arr.forEach(el=>{
-        el.every(item=>{item != ' ' && item === item.toUpperCase()?arr2.push(item):false})
+        el.every(item=>{item === item.toUpperCase()?arr2.push(item):false})
        })
        return arr2.length>0?arr2.sort().join(''):false
   }else{
@@ -31,3 +31,4 @@ function createDreamTeam(members) {
 module.exports = {
   createDreamTeam
 };
+// console.log(createDreamTeam(['OFDGlivia','     D', 1111, 'Lily', 'Oscar', true, null]))
