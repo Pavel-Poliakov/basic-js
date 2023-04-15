@@ -13,9 +13,18 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 class DepthCalculator {
-  calculateDepth(/* arr */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  calculateDepth(array) {
+    let count = 1;
+    function depthCount(item){
+     item.forEach(el=> {
+       if(Array.isArray(el)){
+         count++;
+         depthCount(el)
+       }
+     });
+    }
+    depthCount(array)
+    return count
   }
 }
 
