@@ -18,36 +18,52 @@ function transform(array) {
     let a = "'arr' parameter must be an instance of the Array!"
     return a;
   }
-  else if((array.includes('--discard-next') || array.includes('--discard-prev')) ){
+  else{
     let arr = Array.from(array);
-    let arr2 = Array.from(array);
-    let a = arr.length -1;
     arr.forEach((el,index)=>{
-      el==='--discard-next'&& el != arr[a]?arr.splice(index,2):false
-      el==='--discard-prev'&& el != arr[0]?arr.splice(index-1,2):false
-    })
-    if(arr.length != arr2.length){
-      return arr
-    }
-}
-else if((array.includes('--double-next') || array.includes('--double-prev')) ){
-  let arr = Array.from(array);
-    let a = arr.length -1;
-    arr.forEach((el,index)=>{
-      el==='--double-next' && el != arr[a]?arr[index] = arr[index+1]:false;
-      el==='--double-prev' && el != arr[0]?arr[index] = arr[index-1]:false;
-    })
-    if(!arr.includes('--double-next') && !arr.includes('--double-prev')){
-      return arr
-    }
+      if(el==='--discard-next'){arr.splice(index,2)};
+      if(el==='--discard-prev'){arr.splice(index-1,2)};
+      if(el==='--double-next'){arr[index] = arr[index+1]};
+      if(el==='--double-prev'){arr[index] = arr[index-1]};
+  })
+    return arr
 }
 }
+// function transform(array) {
+//   if(!Array.isArray(array)){
+//     let a = "'arr' parameter must be an instance of the Array!"
+//     return a;
+//   }
+//   else if((array.includes('--discard-next') || array.includes('--discard-prev')) ){
+//     let arr = Array.from(array);
+//     let arr2 = Array.from(array);
+//     let a = arr.length -1;
+//     arr.forEach((el,index)=>{
+//       el==='--discard-next'&& el != arr[a]?arr.splice(index,2):false
+//       el==='--discard-prev'&& el != arr[0]?arr.splice(index-1,2):false
+//     })
+//     if(arr.length != arr2.length){
+//       return arr
+//     }
+// }
+// else if((array.includes('--double-next') || array.includes('--double-prev')) ){
+//   let arr = Array.from(array);
+//     let a = arr.length -1;
+//     arr.forEach((el,index)=>{
+//       el==='--double-next' && el != arr[a]?arr[index] = arr[index+1]:false;
+//       el==='--double-prev' && el != arr[0]?arr[index] = arr[index-1]:false;
+//     })
+//     if(!arr.includes('--double-next') && !arr.includes('--double-prev')){
+//       return arr
+//     }
+// }
+// }
 
-module.exports = {
-  transform
-};
+// module.exports = {
+//   transform
+// };
 
-console.log(transform([]))
+// console.log(transform([]))
 // console.log(transform([]))
 // console.log(transform(['--discard-prev',5,6]))
 // console.log(transform([1, 2, 3, '--double-next']))
