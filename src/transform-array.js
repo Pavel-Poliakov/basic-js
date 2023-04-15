@@ -42,3 +42,7 @@ else if(array.includes('--double-next') || array.includes('--double-prev')|| arr
     }
 }
 }
+
+module.exports = {
+  transform
+};
