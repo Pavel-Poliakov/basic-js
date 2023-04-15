@@ -18,7 +18,7 @@ function transform(array) {
     let a = "'arr' parameter must be an instance of the Array!"
     return a;
   }
-  else if(array.includes('--discard-next') || array.includes('--discard-prev')){
+  else if((array.includes('--discard-next') || array.includes('--discard-prev')) && array.length>0){
     let arr = Array.from(array);
     let arr2 = Array.from(array);
     let a = arr.length -1;
@@ -30,7 +30,7 @@ function transform(array) {
       return arr
     }
 }
-else if(array.includes('--double-next') || array.includes('--double-prev')){
+else if((array.includes('--double-next') || array.includes('--double-prev')) && array.length>0){
   let arr = Array.from(array);
     let a = arr.length -1;
     arr.forEach((el,index)=>{
@@ -48,6 +48,7 @@ module.exports = {
 };
 
 // console.log(transform([1, 2, 3, '--discard-next']))
+// console.log(transform([]))
 // console.log(transform(['--discard-prev',5,6]))
 // console.log(transform([1, 2, 3, '--double-next']))
 // console.log(transform(['--double-prev', 4, 5]))
