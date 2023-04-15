@@ -14,11 +14,11 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
 function transform(array) {
-  if(array.length == 0 || !Array.isArray(array)){
+  if(!Array.isArray(array)){
     let a = "'arr' parameter must be an instance of the Array!"
     return a;
   }
-  else if((array.includes('--discard-next') || array.includes('--discard-prev')) && array.length>0){
+  else if((array.includes('--discard-next') || array.includes('--discard-prev')) ){
     let arr = Array.from(array);
     let arr2 = Array.from(array);
     let a = arr.length -1;
@@ -30,7 +30,7 @@ function transform(array) {
       return arr
     }
 }
-else if((array.includes('--double-next') || array.includes('--double-prev')) && array.length>0){
+else if((array.includes('--double-next') || array.includes('--double-prev')) ){
   let arr = Array.from(array);
     let a = arr.length -1;
     arr.forEach((el,index)=>{
