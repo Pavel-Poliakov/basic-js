@@ -14,7 +14,7 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
 function transform(array) {
-  if(!Array.isArray(array)){
+  if(array.length == 0 || !Array.isArray(array)){
     let a = "'arr' parameter must be an instance of the Array!"
     return a;
   }
@@ -47,7 +47,7 @@ module.exports = {
   transform
 };
 
-// console.log(transform([1, 2, 3, '--discard-next']))
+console.log(transform([]))
 // console.log(transform([]))
 // console.log(transform(['--discard-prev',5,6]))
 // console.log(transform([1, 2, 3, '--double-next']))
