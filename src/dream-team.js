@@ -20,11 +20,7 @@ function createDreamTeam(members) {
     members.flat(Infinity).forEach(el=>{
       typeof el === 'string'? arr.push(el.split('')):false;
     })
-      //  arr.forEach(el=>{
-      //   el.some(item=>{item !== ' ' && item === item.match(/[a-zA-Z]/g) ?arr2.push(item):false})
-      //  })
        arr.forEach(el=>{
-        // el.forEach(item=>item !== ' ' && item.match(/[a-zA-Z]/i)?arr2.push(item):false)
         for(let i = 0; el.length>i; i++){
           if(el[i] !== ' ' && el[i].match(/[a-zA-Z]/i)){
             arr2.push(el[i])
@@ -32,13 +28,7 @@ function createDreamTeam(members) {
           }
         }
        })
-      //  return arr2.length>0?arr2.sort().join(''):false
        return arr2.length>0?arr2.sort().join('').toUpperCase():false
-      // if(arr2.length>0){
-      //   return arr2.sort().join('')
-      // }else{
-      //   return false
-      // }
   }else{
     return false
   }
@@ -46,37 +36,4 @@ function createDreamTeam(members) {
 module.exports = {
   createDreamTeam
 };
-
-// console.log(
-//   createDreamTeam([
-//     "Amelia",
-//     null,
-//     undefined,
-//     "Ruby",
-//     "Lily",
-//     11,
-//     "Grace",
-//     22,
-//     "Millie",
-//     "Daisy",
-//     true,
-//     "Freya",
-//     false,
-//     "Erin",
-//     new Set([1, 2, 3, 4, 5]),
-//     "Megan",
-//     {
-//       John: "Smith"
-//     },
-//     "Jasmine",
-//     1,
-//     2,
-//     3,
-//     4,
-//     5,
-//     "Brooke"
-//   ])
-// );
-
-
 
