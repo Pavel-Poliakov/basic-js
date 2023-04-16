@@ -15,7 +15,7 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 function transform(array) {
   if(!Array.isArray(array)){
-    let a = `"'${array}' parameter must be an instance of the Array!"`
+    let a = "'Arr' parameter must be an instance of the Array!"
     return a;
   }
   else if(array.includes('--discard-next') || array.includes('--discard-prev')){
