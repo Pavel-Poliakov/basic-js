@@ -16,7 +16,7 @@ let arr = [];
 let a = s1.split('').flat();
 let b = s2.split('').flat();
 for(let i=0;a.length>i;i++){
-  for(let j=0;a.length>j;j++){
+  for(let j=0;b.length>j;j++){
     if(a[i] === b[j]){
       arr.push(b[j]);
       b.splice(j,1)
@@ -24,10 +24,10 @@ for(let i=0;a.length>i;i++){
     }
   }
 }
-return arr.length
+return arr
 }
 
 module.exports = {
   getCommonCharacterCount
 };
-// console.log(getCommonCharacterCount('aabcc', 'adcaa'))
+// console.log(getCommonCharacterCount('aabccfsfsfrs', 'adcaaagsgvfds'))
