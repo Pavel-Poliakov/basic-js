@@ -21,7 +21,7 @@ function createDreamTeam(members) {
       typeof el === 'string'? arr.push(el.split('')):false;
     })
        arr.forEach(el=>{
-        el.every(item=>{item === item.toUpperCase()?arr2.push(item):false})
+        el.some(item=>{item === item.toUpperCase() && item !== ' ' && item !== item.toLowerCase() ?arr2.push(item):false})
        })
        return arr2.length>0?arr2.sort().join(''):false
   }else{
@@ -31,4 +31,4 @@ function createDreamTeam(members) {
 module.exports = {
   createDreamTeam
 };
-// console.log(createDreamTeam(['livia','         D', 1111, 'Lily', 'Oscar', true, null]))
+// console.log(createDreamTeam(['Llivia','         D', 1111, 'Lily', 'Oscar', true, null]))
