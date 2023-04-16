@@ -24,7 +24,7 @@ for(let i=0;a.length>i;i++){
     }
   }
 }
-return arr
+return arr.length
 }
 
 module.exports = {
