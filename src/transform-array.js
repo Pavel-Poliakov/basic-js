@@ -25,21 +25,27 @@ function transform(array) {
     if(arrCopy.includes('--discard-next') || arrCopy.includes('--discard-prev') || arrCopy.includes('--double-next') || arrCopy.includes('--double-prev')){
       let a = arrCopy.length -1;
       arrCopy.forEach((el,index)=>{
-        if(el==='--discard-next'&& el != arrCopy[a]){
-          arrCopy.splice(index,2)
-        }
-        if(el==='--discard-prev'&& el != arrCopy[0]){
-          arrCopy.splice(index-1,2)
-        }
-        if(el==='--double-next' && el != arrCopy[a]){
-          arrCopy[index] = arrCopy[index+1]
-        }
-        if(el==='--double-prev' && el != arrCopy[0]){
-          arrCopy[index] = arrCopy[index-1]
-        }
+        el==='--discard-next'&& el != arrCopy[a]?arrCopy.splice(index,2):false;
+        el==='--discard-prev'&& el != arrCopy[0]?arrCopy.splice(index-1,2):false;
+        el==='--double-next' && el != arrCopy[a]?arrCopy[index] = arrCopy[index+1]:false;
+        el==='--double-prev' && el != arrCopy[0]?arrCopy[index] = arrCopy[index-1]:false;
+
+        // if(el==='--discard-next'&& el != arrCopy[a]){
+        //   arrCopy.splice(index,2)
+        // }
+        // if(el==='--discard-prev'&& el != arrCopy[0]){
+        //   arrCopy.splice(index-1,2)
+        // }
+        // if(el==='--double-next' && el != arrCopy[a]){
+        //   arrCopy[index] = arrCopy[index+1]
+        // }
+        // if(el==='--double-prev' && el != arrCopy[0]){
+        //   arrCopy[index] = arrCopy[index-1]
+        // }
       })
     }
-    return arrCopy 
+   return !arrCopy.includes('--double-next') && !arrCopy.includes('--double-prev') &&
+    !arrCopy.includes('--discard-next') && !arrCopy.includes('--discard-prev') ? arrCopy:undefined;
   }
 //   else if(array.includes('--discard-next') || array.includes('--discard-prev')){
 //     let arr = Array.from(array);
@@ -69,7 +75,7 @@ function transform(array) {
 module.exports = {
   transform
 };
-// console.log(transform([1, 2, 3, '--double-next', 4, 5]))
+console.log(transform([]))
 
 
 // function transform(array) {
