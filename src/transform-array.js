@@ -64,6 +64,7 @@ function transform(array) {
       arrCopy.forEach((el,index)=>{
         if(el==='--discard-next'&& el != arrCopy[a]){
           arrCopy.splice(index,2);
+          arrCopy[index] = 'null';
         }else if(el==='--discard-next'&& el === arrCopy[a]){
           arrCopy.splice(index,1);
         }else if(el==='--discard-prev'&& el != arrCopy[0]){
@@ -81,6 +82,7 @@ function transform(array) {
         }
       })
     }
+    arrCopy.forEach((el,index)=>el==='null'?arrCopy.splice(index,1):false)
    return !arrCopy.includes('--double-next') && !arrCopy.includes('--double-prev') &&
     !arrCopy.includes('--discard-next') && !arrCopy.includes('--discard-prev') ? arrCopy:undefined;
   }else{
@@ -90,3 +92,7 @@ function transform(array) {
 module.exports = {
   transform
 };
+// console.log(transform( [ '--discard-next', 4] ))
+// console.log(transform( [ '--discrard-next', 4,'--discard-next', 4 ]))
+// console.log(transform( [1, 2, 3, '--discard-next', 1337, '--discard-prev', 4, 5]))
+// console.log(transform( [1, 2, 3, '--double-next', 1337, '--discard-prev', 4, 5],))
