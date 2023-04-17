@@ -14,33 +14,35 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
 function transform(array) {
-  if(!Array.isArray(array)){
-    let a = "'Arr' parameter must be an instance of the Array!"
-    return a;
-  }
-  else if(array.includes('--discard-next') || array.includes('--discard-prev')){
-    let arr = Array.from(array);
-    let arr2 = Array.from(array);
-    let a = arr.length -1;
-    arr.forEach((el,index)=>{
-      el==='--discard-next'&& el != arr[a]?arr.splice(index,2):false
-      el==='--discard-prev'&& el != arr[0]?arr.splice(index-1,2):false
-    })
-    if(arr.length != arr2.length){
-      return arr
-    }
-}
-else if(array.includes('--double-next') || array.includes('--double-prev')|| array.length >= 0){
-  let arr = Array.from(array);
-    let a = arr.length -1;
-    arr.forEach((el,index)=>{
-      el==='--double-next' && el != arr[a]?arr[index] = arr[index+1]:false;
-      el==='--double-prev' && el != arr[0]?arr[index] = arr[index-1]:false;
-    })
-    if(!arr.includes('--double-next') && !arr.includes('--double-prev')){
-      return arr
-    }
-}
+  throw new NotImplementedError('Not implemented');
+  // remove line with error and write your code here
+//   if(!Array.isArray(array)){
+//     let a = "'Arr' parameter must be an instance of the Array!"
+//     return a;
+//   }
+//   else if(array.includes('--discard-next') || array.includes('--discard-prev')){
+//     let arr = Array.from(array);
+//     let arr2 = Array.from(array);
+//     let a = arr.length -1;
+//     arr.forEach((el,index)=>{
+//       el==='--discard-next'&& el != arr[a]?arr.splice(index,2):false
+//       el==='--discard-prev'&& el != arr[0]?arr.splice(index-1,2):false
+//     })
+//     if(arr.length != arr2.length){
+//       return arr
+//     }
+// }
+// else if(array.includes('--double-next') || array.includes('--double-prev')|| array.length >= 0){
+//   let arr = Array.from(array);
+//     let a = arr.length -1;
+//     arr.forEach((el,index)=>{
+//       el==='--double-next' && el != arr[a]?arr[index] = arr[index+1]:false;
+//       el==='--double-prev' && el != arr[0]?arr[index] = arr[index-1]:false;
+//     })
+//     if(!arr.includes('--double-next') && !arr.includes('--double-prev')){
+//       return arr
+//     }
+// }
 }
 module.exports = {
   transform
